@@ -1,4 +1,3 @@
-// cart.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -7,52 +6,67 @@ const initialState = {
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState: initialState,
+  initialState: {
+    items: JSON.parse(localStorage.getItem("cartItems")) || [],
+  },
   reducers: {
     addToCart: (state, action) => {
-      const existingItem = state.items.find(
-        (item) => item.id === action.payload
-      );
+      const product = action.payload;
+      const id = product._id || product.id; // Fallback for cart or product format
+
+      const existingItem = state.items.find((item) => item.id === id);
 
       if (existingItem) {
-        // If already in cart, increase quantity
         existingItem.quantity += 1;
       } else {
-        // If not, add new with quantity 1
-        state.items.push({ id: action.payload, quantity: 1 });
+        state.items.push({
+          id: id,
+          name: product.name,
+          price: product.priceInPence
+            ? product.priceInPence / 100
+            : product.price,
+          image: product.image,
+          quantity: 1,
+        });
       }
 
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
 
     removeFromCart: (state, action) => {
-      // Remove completely based on ID
-      state.items = state.items.filter((item) => item.id !== action.payload);
+      const productId = action.payload._id;
+      state.items = state.items.filter((item) => item.id !== productId);
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
 
     decreaseQuantity: (state, action) => {
-      const item = state.items.find((item) => item.id === action.payload);
+      const productId = action.payload._id;
+      const item = state.items.find((item) => item.id === productId);
 
       if (item) {
         if (item.quantity > 1) {
           item.quantity -= 1;
         } else {
-          // If quantity drops to 0, remove item
-          state.items = state.items.filter(
-            (item) => item.id !== action.payload
-          );
+          state.items = state.items.filter((item) => item.id !== productId);
         }
 
+        localStorage.setItem("cartItems", JSON.stringify(state.items));
+      }
+    },
+
+    updateCartItem: (state, action) => {
+      const { id, updates } = action.payload;
+      const item = state.items.find((item) => item.id === id);
+
+      if (item) {
+        Object.assign(item, updates);
         localStorage.setItem("cartItems", JSON.stringify(state.items));
       }
     },
   },
 });
 
-// Export the actions to use in components
-export const { addToCart, removeFromCart, decreaseQuantity } =
+export const { addToCart, removeFromCart, decreaseQuantity, updateCartItem } =
   cartSlice.actions;
 
-// Export the reducer to use in store.js
 export default cartSlice.reducer;

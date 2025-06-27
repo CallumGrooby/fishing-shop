@@ -10,55 +10,59 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Rod schema and model (unchanged)
-const rodSchema = new mongoose.Schema(
+// ✅ Product schema & model (for "products" collection)
+const productSchema = new mongoose.Schema(
   {
     name: String,
     priceInPence: Number,
+    image: String,
+    category: String,
   },
-  { collection: "Rods" }
+  { collection: "products" }
 );
-const Rod = mongoose.model("Rod", rodSchema);
 
-// Connect to MongoDB
+const Product = mongoose.model("Product", productSchema);
+
+// ✅ Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("✅ Connected to MongoDB");
 
-    // Log all rods on startup (optional)
-    Rod.find()
-      .then((rods) => {
-        console.log("📦 All Rods:");
-        console.log(JSON.stringify(rods, null, 2));
+    // Optional: Log products on startup
+    Product.find()
+      .then((products) => {
+        console.log("📦 All Products:", products.length);
+        // console.log(JSON.stringify(products, null, 2));
       })
       .catch(console.error);
   })
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Stripe checkout session route (unchanged)
+// ✅ Stripe checkout session route
 app.post("/create-checkout-session", async (req, res) => {
   try {
     const itemIds = req.body.items.map((item) => item.id);
 
-    // Fetch rods by _id from Rod collection (using Mongoose)
-    const rods = await Rod.find({ _id: { $in: itemIds } });
+    const products = await Product.find({ _id: { $in: itemIds } });
 
-    const rodMap = new Map(rods.map((rod) => [rod._id.toString(), rod]));
+    const productMap = new Map(
+      products.map((product) => [product._id.toString(), product])
+    );
 
     const lineItems = req.body.items.map((item) => {
-      const rod = rodMap.get(item.id);
-      if (!rod) {
-        throw new Error(`Rod with ID ${item.id} not found`);
+      const product = productMap.get(item.id);
+      if (!product) {
+        throw new Error(`Product with ID ${item.id} not found`);
       }
 
       return {
         price_data: {
           currency: "usd",
           product_data: {
-            name: rod.name,
+            name: product.name,
           },
-          unit_amount: rod.priceInPence,
+          unit_amount: product.priceInPence,
         },
         quantity: item.quantity,
       };
@@ -79,39 +83,41 @@ app.post("/create-checkout-session", async (req, res) => {
   }
 });
 
-// New: Get all products from all collections dynamically
+// ✅ Get all products from unified "products" collection
 app.post("/get-products", async (req, res) => {
   try {
-    const db = mongoose.connection.db;
-
-    // List all collections in the database
-    const collections = await db.listCollections().toArray();
-
-    const allProducts = [];
-
-    for (const collection of collections) {
-      // Fetch all docs from each collection
-      const docs = await db.collection(collection.name).find({}).toArray();
-
-      // Add collection name to each doc for frontend use
-      allProducts.push(
-        ...docs.map((doc) => ({
-          ...doc,
-          collection: collection.name,
-        }))
-      );
-    }
-
-    // Log all products on the server
-    console.log("📦 All Products:");
-    console.log(JSON.stringify(allProducts, null, 2));
-
-    res.json({ products: allProducts });
+    const products = await Product.find();
+    res.json({ products });
   } catch (error) {
-    console.error("Failed to fetch products:", error);
+    console.error("❌ Failed to fetch products:", error);
     res.status(500).json({ error: "Failed to fetch products" });
   }
 });
 
-// Start server
-app.listen(5000, () => console.log("Server running on port 5000"));
+app.get("/get-home-sections", async (req, res) => {
+  try {
+    const sections = await mongoose.connection.db
+      .collection("homeSections")
+      .find()
+      .sort({ position: 1 })
+      .toArray();
+    res.json(sections);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch homepage sections" });
+  }
+});
+
+app.get("/get-special-offers", async (req, res) => {
+  try {
+    const sections = await mongoose.connection.db
+      .collection("specialOffers")
+      .find()
+      .toArray();
+    res.json(sections);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch special offers" });
+  }
+});
+
+// ✅ Start server
+app.listen(5000, () => console.log("🚀 Server running on port 5000"));

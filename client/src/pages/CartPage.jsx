@@ -33,6 +33,9 @@ export const CartPage = () => {
         console.error(e.error);
       });
   };
+
+  console.log(cartItems);
+
   return (
     <div>
       <h2>My Cart</h2>
@@ -42,15 +45,20 @@ export const CartPage = () => {
         <ul>
           {cartItems.map((item, index) => (
             <li key={index}>
-              <p>{item.id}</p>
-              <p>{item.quantity}</p>
-              <button onClick={() => dispatch(removeFromCart(item.id))}>
-                Delete
-              </button>
-              <button onClick={() => dispatch(decreaseQuantity(item.id))}>
+              <p>{item.name}</p>
+              <p>Quantity: {item.quantity}</p>
+
+              <button
+                onClick={() => dispatch(decreaseQuantity({ _id: item.id }))}
+              >
                 -
               </button>
-              <button onClick={() => dispatch(addToCart(item.id))}>+</button>
+              <button onClick={() => dispatch(addToCart(item))}>+</button>
+              <button
+                onClick={() => dispatch(removeFromCart({ _id: item.id }))}
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>

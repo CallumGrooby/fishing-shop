@@ -3,12 +3,31 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
-import store from "./components/Store.js"; // <-- import the store you just made
+import store from "./components/Store.js";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import { Navbar } from "./components/Navbar.jsx";
+import { UIProvider } from "./components/UIModals/UIContext.jsx";
+import { Hero } from "./components/Hero.jsx";
+import { HomePage } from "./pages/HomePage.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navbar />,
+    errorElement: <div>Oops! Something went wrong.</div>,
+    children: [
+      { path: "/", element: <HomePage /> },
+      // { path: "/user/:userId", element: <UserProfile /> },
+    ],
+  },
+]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <UIProvider>
+        <RouterProvider router={router} />
+      </UIProvider>
     </Provider>
   </StrictMode>
 );
