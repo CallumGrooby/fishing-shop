@@ -119,5 +119,80 @@ app.get("/get-special-offers", async (req, res) => {
   }
 });
 
+app.get("/product/:id", async (req, res) => {
+  try {
+    const productId = req.params.id;
+
+    // Validate ObjectId format (optional but safe)
+    if (!mongoose.Types.ObjectId.isValid(productId)) {
+      return res.status(400).json({ error: "Invalid product ID" });
+    }
+
+    const product = await Product.findById(productId);
+
+    if (!product) {
+      return res.status(404).json({ error: "Product not found" });
+    }
+
+    res.json(product);
+  } catch (error) {
+    console.error("Failed to fetch product by ID:", error);
+    res.status(500).json({ error: "Failed to fetch product" });
+  }
+});
+
+// Reviews
+
+const reviewSchema = new mongoose.Schema(
+  {
+    productId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "Product",
+    },
+    userName: String,
+    rating: Number, // e.g. 1 to 5
+    comment: String,
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  { collection: "reviews" }
+);
+
+const Review = mongoose.model("Review", reviewSchema);
+
+app.post("/add-review", async (req, res) => {
+  try {
+    const { productId, userName, rating, comment } = req.body;
+
+    const review = new Review({
+      productId,
+      userName,
+      rating,
+      comment,
+    });
+
+    await review.save();
+
+    res.status(201).json({ message: "Review added successfully", review });
+  } catch (error) {
+    console.error("❌ Failed to add review:", error);
+    res.status(500).json({ error: "Failed to add review" });
+  }
+});
+
+app.get("/product/:id/reviews", async (req, res) => {
+  try {
+    const reviews = await Review.find({ productId: req.params.id }).sort({
+      createdAt: -1,
+    });
+    res.json(reviews);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch reviews" });
+  }
+});
+
 // ✅ Start server
 app.listen(5000, () => console.log("🚀 Server running on port 5000"));

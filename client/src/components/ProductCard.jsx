@@ -1,10 +1,18 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "./Cart";
-import test from "../assets/test.png";
+import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router";
+
 export const ProductCard = (props) => {
   const { productDetails: product, class: className } = props;
   const dispatch = useDispatch();
+  let navigate = useNavigate();
+
+  const navigateTo = () => {
+    console.log("clicked");
+    navigate(`/product/${product._id}`);
+  };
 
   if (product.isCustom) {
     return (
@@ -21,7 +29,15 @@ export const ProductCard = (props) => {
   }
 
   return (
-    <div key={product._id} className={`product-card ${className}`}>
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.25 }}
+      className={`product-card ${className}`}
+      onClick={() => navigateTo()}
+    >
       {product.tags.includes("sale") && <span className="tag">sale!</span>}
 
       <img src={product.image} alt={product.name} />
@@ -53,6 +69,6 @@ export const ProductCard = (props) => {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

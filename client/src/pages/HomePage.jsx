@@ -5,6 +5,7 @@ import { FeaturedCategories } from "../components/FeaturedCategories";
 import { TopSellersSection } from "../components/TopSellers/TopSellersSection";
 import { SpecialOffers } from "../components/SpecialOffers";
 import { FeaturedProducts } from "../components/FeaturedProducts";
+import { HeroSection } from "../components/HeroSection";
 
 export const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -35,6 +36,7 @@ export const HomePage = () => {
   return (
     <div className="container mx-auto">
       {/* Hero */}
+      <HeroSection />
       {/* Top Sellers */}
       <TopSellersSection products={products} />
       {/* Sales */}

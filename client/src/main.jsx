@@ -9,6 +9,7 @@ import { Navbar } from "./components/Navbar.jsx";
 import { UIProvider } from "./components/UIModals/UIContext.jsx";
 import { Hero } from "./components/Hero.jsx";
 import { HomePage } from "./pages/HomePage.jsx";
+import { ProductPage } from "./pages/ProductPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     errorElement: <div>Oops! Something went wrong.</div>,
     children: [
       { path: "/", element: <HomePage /> },
+      { path: "/product/:productId", element: <ProductPage /> },
       // { path: "/user/:userId", element: <UserProfile /> },
     ],
   },

@@ -20,7 +20,7 @@ export const TopSellersSection = (props) => {
     <div>
       <div className="header py-2">
         <span className="header-line" />
-        <h1 className="text-center">Our Top Sellers</h1>
+        <h2 className="text-center">Our Top Sellers</h2>
         <span className="header-line" />
       </div>
 
