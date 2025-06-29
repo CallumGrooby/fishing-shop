@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "./Cart";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router";
+import { PriceComponent } from "./PriceComponent";
 
 export const ProductCard = (props) => {
   const { productDetails: product, class: className } = props;
@@ -44,23 +45,7 @@ export const ProductCard = (props) => {
       <div className="product-details">
         <h3 className="product-name">{product.name}</h3>
         <div className="product-details-bottom ">
-          {product.tags.includes("sale") ? (
-            <div className="product-price-container">
-              <strike className="price">
-                £{(product.priceInPence / 100).toFixed(2)}
-              </strike>
-              <p className="discounted-price">
-                £{(product.salePriceInPence / 100).toFixed(2)}
-              </p>
-            </div>
-          ) : (
-            <p className="product-descripton">
-              £{(product.priceInPence / 100).toFixed(2)}
-            </p>
-          )}
-          {/* <p className="product-descripton">
-            £{(product.priceInPence / 100).toFixed(2)}
-          </p> */}
+          <PriceComponent product={product} />
           <button
             className="add-to-cart-button"
             onClick={() => dispatch(addToCart(product))}

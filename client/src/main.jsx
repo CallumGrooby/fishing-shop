@@ -10,6 +10,7 @@ import { UIProvider } from "./components/UIModals/UIContext.jsx";
 import { Hero } from "./components/Hero.jsx";
 import { HomePage } from "./pages/HomePage.jsx";
 import { ProductPage } from "./pages/ProductPage.jsx";
+import { CheckOutPage } from "./pages/CheckOutPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/product/:productId", element: <ProductPage /> },
+      { path: "/checkout", element: <CheckOutPage /> },
       // { path: "/user/:userId", element: <UserProfile /> },
     ],
   },

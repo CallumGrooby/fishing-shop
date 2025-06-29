@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { addToCart } from "../components/Cart";
 import { AnimatePresence, motion } from "framer-motion";
+import { PriceComponent } from "../components/PriceComponent";
 
 export const ProductPage = () => {
   const { productId } = useParams();
@@ -54,20 +55,7 @@ const ProductInfo = (props) => {
         </div>
 
         <div className="product-details-bottom">
-          {product.tags.includes("sale") ? (
-            <div className="product-price-container">
-              <strike className="price">
-                £{(product.priceInPence / 100).toFixed(2)}
-              </strike>
-              <p className="discounted-price">
-                £{(product.salePriceInPence / 100).toFixed(2)}
-              </p>
-            </div>
-          ) : (
-            <p className="product-price">
-              £{(product.priceInPence / 100).toFixed(2)}
-            </p>
-          )}
+          <PriceComponent product={product} />
 
           <button
             className="add-to-cart-button"

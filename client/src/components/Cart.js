@@ -19,15 +19,7 @@ const cartSlice = createSlice({
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        state.items.push({
-          id: id,
-          name: product.name,
-          price: product.priceInPence
-            ? product.priceInPence / 100
-            : product.price,
-          image: product.image,
-          quantity: 1,
-        });
+        state.items.push({ ...product, quantity: 1, id: id });
       }
 
       localStorage.setItem("cartItems", JSON.stringify(state.items));
