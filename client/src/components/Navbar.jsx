@@ -4,7 +4,7 @@ import wishListIcon from "../assets/Wishlist.png";
 import cartIcon from "../assets/Cart.png";
 import searchIcon from "../assets/Search.svg";
 import { useUI } from "./UIModals/UIContext";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import { CartModal } from "./UIModals/CartModal";
 
 export const Navbar = () => {

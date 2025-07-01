@@ -9,7 +9,7 @@ import {
   addToCart,
 } from "../components/Cart";
 import { PriceComponent } from "../components/PriceComponent";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { CartItemsList } from "../components/CartItemsList";
 export const CartPage = ({ closeModal }) => {
   const dispatch = useDispatch();
@@ -17,38 +17,14 @@ export const CartPage = ({ closeModal }) => {
   const cartItems = useSelector((state) => state.cart.items);
 
   const handleCheckOut = () => {
-    console.log("Button Clicked");
-
-    // 👇 Close modal immediately, or after successful response if preferred
     closeModal("cartOpen");
-
-    fetch("http://localhost:5000/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        items: cartItems,
-      }),
-    })
-      .then((res) => {
-        if (res.ok) return res.json();
-        return res.json().then((json) => Promise.reject(json));
-      })
-      .then(({ url }) => {
-        console.log(url);
-        // window.location = url;
-      })
-      .catch((e) => {
-        console.error(e.error);
-      });
   };
 
   console.log("Cart Items", cartItems);
 
   return (
     <div className="cart-container">
-      <div className="cart-title-wrapper">
+      <div className="border-bottom">
         <h2 className="cart-title">Your Cart</h2>
       </div>
 
