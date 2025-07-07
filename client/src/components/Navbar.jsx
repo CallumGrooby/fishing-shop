@@ -2,10 +2,11 @@ import React from "react";
 import accountIcon from "../assets/Account.png";
 import wishListIcon from "../assets/Wishlist.png";
 import cartIcon from "../assets/Cart.png";
-import searchIcon from "../assets/Search.svg";
+
 import { useUI } from "./UIModals/UIContext";
 import { Outlet } from "react-router-dom";
 import { CartModal } from "./UIModals/CartModal";
+import { SearchBar } from "./SearchBar";
 
 export const Navbar = () => {
   const { toggleModal } = useUI();
@@ -13,15 +14,7 @@ export const Navbar = () => {
   return (
     <>
       <nav className="container mx-auto flex felx-row justify-between pt-4">
-        <span className="relative border-2 border-gray-400 px-4 py-2 rounded-sm">
-          <input
-            className="focus:shadow-none ring-0 border-0 outline-none relative"
-            placeholder="Search For a Product"
-          ></input>
-          <button className="absolute inset-0 flex items-center justify-end-safe px-4 py-2">
-            <img src={searchIcon}></img>
-          </button>
-        </span>
+        <SearchBar />
 
         <div className="flex flex-row gap-2">
           <img

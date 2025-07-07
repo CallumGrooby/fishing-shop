@@ -1,0 +1,26 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const productSlice = createSlice({
+  name: "products",
+  initialState: {
+    allProducts: [],
+    status: "idle", // new
+    error: null, // optional
+  },
+  reducers: {
+    setProducts: (state, action) => {
+      state.allProducts = action.payload;
+      state.status = "succeeded";
+    },
+    setLoading: (state) => {
+      state.status = "loading";
+    },
+    setError: (state, action) => {
+      state.status = "failed";
+      state.error = action.payload;
+    },
+  },
+});
+
+export const { setProducts, setLoading, setError } = productSlice.actions;
+export default productSlice.reducer;

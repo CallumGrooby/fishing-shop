@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useFetcher, useSearchParams } from "react-router-dom";
 import { Cart } from "../components/CheckOut/Payment";
 import { PriceSummary } from "../components/CheckOut/PriceSummary";
+import { fetchProducts } from "../components/Store/productThunk";
 
 export const SuccessPage = () => {
   const [searchParams] = useSearchParams();
@@ -29,28 +30,13 @@ export const SuccessPage = () => {
     }
   }, [sessionId]);
 
-  const [products, setProducts] = useState([]);
-  const FetchProducts = async () => {
-    try {
-      const response = await axios.post("http://localhost:5000/get-products");
-      return response;
-    } catch (e) {
-      console.error(e);
-    }
-    return null;
-  };
+  const products = useSelector((state) => state.products?.allProducts || []);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchAndSetProducts = async () => {
-      const products = await FetchProducts();
-      if (!products) return;
-
-      if (!products?.data?.products) return;
-      setProducts(products.data.products);
-    };
-
-    fetchAndSetProducts();
-  }, []);
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   useEffect(() => {
     console.log("Products", products);

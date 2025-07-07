@@ -1,34 +1,10 @@
 import { useEffect, useState } from "react";
 import { ProductCard } from "./ProductCard";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
 
-export const FeaturedProducts = ({ products }) => {
-  // const [featuredItems, setFeaturedItems] = useState([]);
-  // const [shownProducts, setShownProducts] = useState([]);
-
-  // const filterProducts = (unfilteredProducts) => {
-  //   const filtered = unfilteredProducts.filter((product) =>
-  //     product.tags.includes("featured")
-  //   );
-  //   setFeaturedItems(filtered);
-  // };
-
-  // useEffect(() => {
-  //   filterProducts(products);
-  // }, [products]);
-
-  // useEffect(() => {
-  //   if (featuredItems.length > 0) {
-  //     handleCategory("reels"); // default selection
-  //   }
-  // }, [featuredItems]);
-
-  // const handleCategory = (newCategory) => {
-  //   const filtered = featuredItems.filter(
-  //     (product) => product.category === newCategory
-  //   );
-  //   setShownProducts(filtered);
-  // };
+export const FeaturedProducts = () => {
+  const products = useSelector((state) => state.products?.allProducts || []);
 
   const categories = ["all", "rods", "reels"];
   const [filter, setFilter] = useState("all");

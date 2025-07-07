@@ -15,6 +15,57 @@
   font-size: 18px;
 }
 
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: inherit;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+
+.search-input:focus {
+  border: none;
+  outline: none;
+}
+
+.search-bar:has(.search-input:focus) {
+  border: 1px solid var(--primary-color);
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
 /* Product Carousel */
 .carousel-wrapper {
   max-width: 1440px;

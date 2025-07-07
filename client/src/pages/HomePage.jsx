@@ -6,46 +6,38 @@ import { TopSellersSection } from "../components/TopSellers/TopSellersSection";
 import { SpecialOffers } from "../components/SpecialOffers";
 import { FeaturedProducts } from "../components/FeaturedProducts";
 import { HeroSection } from "../components/HeroSection";
+import { fetchProducts } from "../components/Store/productThunk";
+import { useDispatch, useSelector } from "react-redux";
 
 export const HomePage = () => {
-  const [products, setProducts] = useState([]);
-  const FetchProducts = async () => {
-    try {
-      const response = await axios.post("http://localhost:5000/get-products");
-      console.log(response);
-      return response;
-    } catch (e) {
-      console.error(e);
-    }
-    return null;
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchAndSetProducts = async () => {
-      const products = await FetchProducts();
-      if (!products) return;
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
-      if (!products?.data?.products) return;
-      setProducts(products.data.products);
-      console.log(products.data.products);
-    };
+  const status = useSelector((state) => state.products?.status);
+  const error = useSelector((state) => state.products?.error);
 
-    fetchAndSetProducts();
-  }, []);
+  if (status === "loading") {
+    return <p className="text-center py-4">Loading Products...</p>;
+  }
+
+  if (status === "failed") {
+    return (
+      <p className="text-center py-4 text-red-500">
+        Failed to load products: {error}
+      </p>
+    );
+  }
 
   return (
     <div className="container mx-auto">
-      {/* Hero */}
       <HeroSection />
-      {/* Top Sellers */}
-      <TopSellersSection products={products} />
-      {/* Sales */}
+      <TopSellersSection />
       <SpecialOffers />
-      {/*Categories */}
-      <FeaturedCategories products={products} />
-
-      {/* Featured Products */}
-      <FeaturedProducts products={products} />
+      <FeaturedCategories />
+      <FeaturedProducts />
     </div>
   );
 };

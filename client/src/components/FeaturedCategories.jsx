@@ -2,8 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ProductCard } from "./ProductCard";
 import { ProductCarousel } from "./ProductCarousel";
+import { useSelector } from "react-redux";
 
-export const FeaturedCategories = ({ products }) => {
+export const FeaturedCategories = () => {
+  const products = useSelector((state) => state.products?.allProducts || []);
   const [sections, setSections] = useState([]);
 
   useEffect(() => {

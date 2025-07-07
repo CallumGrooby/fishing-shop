@@ -1,20 +1,26 @@
-import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { ProductCard } from "../ProductCard";
 
-export const TopSellersSection = (props) => {
-  const { products } = props;
+export const TopSellersSection = () => {
+  const products = useSelector((state) => state.products?.allProducts || []);
   const [topSellers, setTopSellers] = useState([]);
-  const filterProducts = (unfilteredProducts) => {
-    const filteredProducts = unfilteredProducts.filter((product) =>
-      product.tags.includes("top-seller")
-    );
-    console.log(filteredProducts);
-    setTopSellers(filteredProducts);
-  };
 
   useEffect(() => {
-    filterProducts(products);
+    if (!Array.isArray(products)) return;
+
+    const filtered = products.filter((product) =>
+      product.tags?.includes("top-seller")
+    );
+
+    if (JSON.stringify(filtered) !== JSON.stringify(topSellers)) {
+      setTopSellers(filtered);
+    }
   }, [products]);
+
+  if (!products.length) {
+    return <p className="text-center py-4">Loading top sellers...</p>;
+  }
 
   return (
     <div>
