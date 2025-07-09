@@ -24,8 +24,8 @@ export const TopSellersSection = () => {
 
   return (
     <div>
-      <div className="header py-2">
-        <span className="header-line" />
+      <div className="header">
+        <span className="desktop-only header-line" />
         <h2 className="text-center">Our Top Sellers</h2>
         <span className="header-line" />
       </div>

@@ -14,7 +14,7 @@ export const FeaturedProducts = () => {
   return (
     <div>
       <div className="header">
-        <span className="header-line" />
+        <span className="desktop-only header-line" />
         <h2 className="text-center">Featured Products</h2>
         <span className="header-line" />
       </div>
@@ -39,25 +39,9 @@ export const FeaturedProducts = () => {
         ))}
       </div> */}
 
-      <motion.div
-        layout
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
-      >
+      <motion.div layout className="product-track">
         <AnimatePresence>
           {filteredProducts.map((hero) => (
-            // <motion.div
-            //   key={hero._id}
-            //   layout
-            //   initial={{ opacity: 0, scale: 0.8 }}
-            //   animate={{ opacity: 1, scale: 1 }}
-            //   exit={{ opacity: 0, scale: 0.8 }}
-            //   transition={{ duration: 0.3 }}
-            //   className="bg-gray-800 text-white p-4 rounded-xl shadow-md"
-            // >
-            //   <h3 className="text-lg font-bold">{hero.name}</h3>
-            //   <p className="text-sm capitalize">{}</p>
-            // </motion.div>
-
             <ProductCard key={hero._id} productDetails={hero} />
           ))}
         </AnimatePresence>

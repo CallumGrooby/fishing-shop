@@ -7,7 +7,10 @@ export const CartModal = () => {
 
   return (
     <div className="modal">
-      <button className="close-button" onClick={() => closeModal("cartOpen")}>
+      <button
+        className="desktop-only close-button"
+        onClick={() => closeModal("cartOpen")}
+      >
         x
       </button>
 

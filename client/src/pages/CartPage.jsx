@@ -11,6 +11,7 @@ import {
 import { PriceComponent } from "../components/PriceComponent";
 import { Link } from "react-router-dom";
 import { CartItemsList } from "../components/CartItemsList";
+import { DeleteIcon } from "../components/Icons/DeleteIcon";
 export const CartPage = ({ closeModal }) => {
   const dispatch = useDispatch();
 
@@ -26,6 +27,13 @@ export const CartPage = ({ closeModal }) => {
     <div className="cart-container">
       <div className="border-bottom">
         <h2 className="cart-title">Your Cart</h2>
+
+        <button
+          className="mobile-only close-button"
+          onClick={() => closeModal("cartOpen")}
+        >
+          x
+        </button>
       </div>
 
       {cartItems.length === 0 ? (
@@ -78,7 +86,7 @@ export const CartPage = ({ closeModal }) => {
                       className="delete-button"
                       onClick={() => dispatch(removeFromCart({ _id: item.id }))}
                     >
-                      Delete
+                      <DeleteIcon className="icon" />
                     </button>
                   </div>
                 </div>
@@ -89,7 +97,7 @@ export const CartPage = ({ closeModal }) => {
         // <CartItemsList cartItems={cartItems} />
       )}
 
-      <Link to={"checkout"} onClick={handleCheckOut}>
+      <Link className="offer-button" to={"checkout"} onClick={handleCheckOut}>
         Check Out
       </Link>
     </div>

@@ -39,7 +39,7 @@ export const HeroSection = () => {
         <img src={leftSideShape} alt="Decorative shape" id="hero-top-shape" />
       </div>
 
-      <div className="right-section">
+      <div className="desktop-only right-section">
         <h2>Outdoor Supplies</h2>
         <p>Up to 50% off on selected items</p>
 

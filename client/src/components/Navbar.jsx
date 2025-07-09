@@ -1,39 +1,41 @@
 import React from "react";
-import accountIcon from "../assets/Account.png";
-import wishListIcon from "../assets/Wishlist.png";
-import cartIcon from "../assets/Cart.png";
 
 import { useUI } from "./UIModals/UIContext";
 import { Outlet } from "react-router-dom";
 import { CartModal } from "./UIModals/CartModal";
 import { SearchBar } from "./SearchBar";
+import { AccountIcon } from "./Icons/AccountIcon";
+import { WishlistIcon } from "./Icons/WishListIcon";
+import { CartIcon } from "./Icons/CartIcon";
 
 export const Navbar = () => {
   const { toggleModal } = useUI();
 
   return (
     <>
-      <nav className="container mx-auto flex felx-row justify-between pt-4">
-        <SearchBar />
+      <nav className="container">
+        <div className="desktop-only">
+          <SearchBar />
+        </div>
 
         <div className="flex flex-row gap-2">
-          <img
-            className="size-6"
-            src={wishListIcon}
-            alt=""
+          <div className="mobile-only">
+            <SearchBar iconOnly />
+          </div>
+
+          <WishlistIcon
+            className="nav-icon"
             onClick={() => toggleModal("wishlistOpen")}
           />
-          <img
-            className="size-6"
-            src={accountIcon}
-            alt=""
+          <AccountIcon
+            className="nav-icon"
             onClick={() => toggleModal("loginOpen")}
           />
-          <img
-            className="size-6"
-            src={cartIcon}
-            alt=""
-            onClick={() => toggleModal("cartOpen")}
+          <CartIcon
+            className="nav-icon"
+            onClick={() => {
+              toggleModal("cartOpen");
+            }}
           />
         </div>
       </nav>

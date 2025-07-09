@@ -19,19 +19,9 @@ export const SpecialOffers = () => {
   }, []);
 
   return (
-    <div className="mx-auto max-w-[1264px] flex flex-row gap-8">
-      {/* {specialOffers.map((offer, i) => (
-        <div key={i} className="bg-[#FF5F23]">
-          <h3>{offer.title}</h3>
-          <h2>{offer.maxPercentageOf}</h2>
-          <p>{offer.description}</p>
-
-          <button>Shop Now</button>
-        </div>
-      ))} */}
-
+    <div className="special-offers-wrapper">
       {specialOffers.map((offer, i) => (
-        <div class="overlay">
+        <div key={i} class="overlay">
           <div className="offer">
             <h3 class="offer-title">{offer.title}</h3>
             <h2 class="offer-discount">{offer.maxPercentageOf}%</h2>

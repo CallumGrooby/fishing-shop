@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart, decreaseQuantity, removeFromCart } from "./Cart";
 import { PriceComponent } from "./PriceComponent";
+import { DeleteIcon } from "./Icons/DeleteIcon";
 
 export const CartItemsList = ({ cartItems }) => {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ export const CartItemsList = ({ cartItems }) => {
                       className="delete-button"
                       onClick={() => dispatch(removeFromCart({ _id: item.id }))}
                     >
-                      Delete
+                      <DeleteIcon className="icon" />
                     </button>
                   </div>
                 </div>

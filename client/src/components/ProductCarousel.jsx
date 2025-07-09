@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ProductCard } from "./ProductCard";
+
+const getVisibleCount = () => {
+  const width = window.innerWidth;
+  if (width < 600) return 1;
+  if (width < 1024) return 2;
+  return 4;
+};
 
 export const ProductCarousel = ({ products }) => {
   const [index, setIndex] = useState(0);
-  const visibleCount = 4; // Change in CSS (.product-card  flex: 0 0 calc(100% / 4))
-  const maxIndex = products.length - visibleCount;
+  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
+  const maxIndex = Math.max(0, products.length - visibleCount);
 
   const next = () => {
     if (index < maxIndex) setIndex(index + 1);
@@ -13,6 +20,14 @@ export const ProductCarousel = ({ products }) => {
   const prev = () => {
     if (index > 0) setIndex(index - 1);
   };
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleCount(getVisibleCount());
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="carousel-wrapper">

@@ -4,7 +4,8 @@ import { addToCart } from "./Cart";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { PriceComponent } from "./PriceComponent";
-
+import cartIcon from "../assets/Cart.svg";
+import { CartIcon } from "./Icons/CartIcon";
 export const ProductCard = (props) => {
   const { productDetails: product, class: className } = props;
   const dispatch = useDispatch();
@@ -17,13 +18,14 @@ export const ProductCard = (props) => {
 
   if (product.isCustom) {
     return (
-      <div className="carousel-product section-card">
-        <img src={product.image} alt={product.title} />
+      <div
+        className="carousel-product section-card"
+        style={{ backgroundImage: `url(${product.image})` }}
+      >
         <div className="section-details">
           <h3 className="title">{product.title}</h3>
           <p className="description">{product.description}</p>
-
-          <button className="button ">Explore More</button>
+          <button className="button">Explore More</button>
         </div>
       </div>
     );
@@ -50,7 +52,10 @@ export const ProductCard = (props) => {
             className="add-to-cart-button"
             onClick={() => dispatch(addToCart(product))}
           >
-            Add To Cart
+            <p className="desktop-only">Add To Cart</p>
+
+            <CartIcon className="mobile-only icon" />
+            {/* <img className="mobile-only icon" src={cartIcon} alt="" /> */}
           </button>
         </div>
       </div>
