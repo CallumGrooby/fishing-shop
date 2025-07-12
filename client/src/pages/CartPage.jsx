@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import {
-  removeFromCart,
-  decreaseQuantity,
-  addToCart,
-} from "../components/Cart";
 import { PriceComponent } from "../components/PriceComponent";
 import { Link } from "react-router-dom";
 import { CartItemsList } from "../components/CartItemsList";
 import { DeleteIcon } from "../components/Icons/DeleteIcon";
+import {
+  addToCart,
+  decreaseQuantity,
+  removeFromCart,
+} from "../components/Store/Cart";
 export const CartPage = ({ closeModal }) => {
   const dispatch = useDispatch();
 

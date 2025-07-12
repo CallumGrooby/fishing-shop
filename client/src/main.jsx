@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
-import store from "./components/Store.js";
+import store from "./components/Store/Store.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Navbar } from "./components/Navbar.jsx";
 import { UIProvider } from "./components/UIModals/UIContext.jsx";
@@ -12,6 +12,7 @@ import { HomePage } from "./pages/HomePage.jsx";
 import { ProductPage } from "./pages/ProductPage.jsx";
 import { CheckOutPage } from "./pages/CheckOutPage.jsx";
 import { SuccessPage } from "./pages/SuccessPage.jsx";
+import { OrderCancelled } from "./pages/OrderCancelPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/product/:productId", element: <ProductPage /> },
       { path: "/checkout", element: <CheckOutPage /> },
       { path: "/success", element: <SuccessPage /> },
+      { path: "/cancel", element: <OrderCancelled /> },
       // { path: "/user/:userId", element: <UserProfile /> },
     ],
   },

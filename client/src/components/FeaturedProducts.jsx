@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import { ProductCard } from "./ProductCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
-
+import { useMemo } from "react";
 export const FeaturedProducts = () => {
   const products = useSelector((state) => state.products?.allProducts || []);
 
-  const categories = ["all", "rods", "reels"];
+  const categories = useMemo(() => {
+    const unique = new Set(products.map((p) => p.category));
+    return ["all", ...Array.from(unique)];
+  }, [products]);
+
   const [filter, setFilter] = useState("all");
   const filteredProducts =
     filter === "all" ? products : products.filter((p) => p.category === filter);

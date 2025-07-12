@@ -1,15 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "./Cart";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { PriceComponent } from "./PriceComponent";
 import cartIcon from "../assets/Cart.svg";
 import { CartIcon } from "./Icons/CartIcon";
+import { addToCart } from "./Store/Cart";
 export const ProductCard = (props) => {
   const { productDetails: product, class: className } = props;
   const dispatch = useDispatch();
   let navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
   const navigateTo = () => {
     console.log("clicked");
@@ -43,7 +45,7 @@ export const ProductCard = (props) => {
     >
       {product.tags.includes("sale") && <span className="tag">sale!</span>}
 
-      <img src={product.image} alt={product.name} />
+      <img src={`${baseUrl}${product.image}`} alt={product.name} />
       <div className="product-details">
         <h3 className="product-name">{product.name}</h3>
         <div className="product-details-bottom ">

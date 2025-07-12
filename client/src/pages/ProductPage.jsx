@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addToCart } from "../components/Cart";
+import { addToCart } from "../components/Store/Cart.js";
 import { AnimatePresence, motion } from "framer-motion";
 import { PriceComponent } from "../components/PriceComponent";
 

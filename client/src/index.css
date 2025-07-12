@@ -192,6 +192,7 @@ nav {
 .carousel-window {
   overflow: hidden;
   width: 100%;
+  padding: 4px;
 }
 
 .carousel-track {
@@ -273,10 +274,8 @@ nav {
 
 /* Products */
 .product-track {
-  margin: auto;
-  max-width: 65rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+  grid-template-columns: repeat(4, 1fr); /* 3 columns by default */
   gap: 8px;
   align-items: center;
   justify-items: center; /* center each item in its cell */
@@ -1618,6 +1617,46 @@ form#shipping-form button[type="submit"]:hover {
     padding-inline: 4px;
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
   }
+}
+
+/* Order Canceled Page */
+
+.empty-cart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  max-width: 500px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.empty-cart-wrapper svg {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  fill: #fff; /* change to match your theme */
+}
+
+.empty-cart-wrapper p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.back-to-shop-btn {
+  background-color: #ffd500;
+  color: black;
+  padding: 0.75rem 2rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.back-to-shop-btn:hover {
+  background-color: black;
+  color: white;
 }
 
 @media (max-width: 1024px) {

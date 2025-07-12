@@ -1,9 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCart, decreaseQuantity, removeFromCart } from "./Cart";
+
 import { PriceComponent } from "./PriceComponent";
 import { DeleteIcon } from "./Icons/DeleteIcon";
+import { addToCart, decreaseQuantity, removeFromCart } from "./Store/Cart";
 
 export const CartItemsList = ({ cartItems }) => {
   const dispatch = useDispatch();

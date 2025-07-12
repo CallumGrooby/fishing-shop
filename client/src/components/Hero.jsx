@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useDispatch } from "react-redux";
-import { addToCart } from "./Cart"; // same place you export the reducer
 
 export const Hero = () => {
   const dispatch = useDispatch();
@@ -59,7 +58,7 @@ export const Hero = () => {
 
 const Sections = ({ products }) => {
   const [sections, setSections] = useState([]);
-
+  const baseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
   useEffect(() => {
     const fetchSections = async () => {
       try {
@@ -110,7 +109,10 @@ const Sections = ({ products }) => {
                 <div className="product-row">
                   {matchingProducts.map((product) => (
                     <div key={product._id} className="product-card">
-                      <img src={product.image} alt={product.name} />
+                      <img
+                        src={`${baseUrl}${product.image}`}
+                        alt={product.name}
+                      />
                       <h3>{product.name}</h3>
                       <p>£{(product.priceInPence / 100).toFixed(2)}</p>
                     </div>

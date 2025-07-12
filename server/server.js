@@ -8,7 +8,11 @@ const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(
+  "/webhook",
+  express.raw({ type: "application/json" }) // Needed for Stripe webhook
+);
+app.use(express.json()); // For all other routes
 
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true, limit: "1mb" }));
@@ -93,14 +97,22 @@ app.post("/create-checkout-session", async (req, res) => {
   }
 });
 
-app.get("/checkout-data", (req, res) => {
+app.get("/checkout-data", async (req, res) => {
   const sessionId = req.query.session_id;
-  if (!sessionId || !sessionDataStore.has(sessionId)) {
-    return res.status(404).json({ error: "Session data not found" });
+  if (!sessionId) {
+    return res.status(400).json({ error: "Missing session_id" });
   }
 
-  const data = sessionDataStore.get(sessionId);
-  res.json(data);
+  try {
+    const order = await Order.findOne({ stripeSessionId: sessionId });
+    if (!order) {
+      return res.status(404).json({ error: "Order not found" });
+    }
+    res.json(order);
+  } catch (err) {
+    console.error("Failed to fetch order:", err);
+    res.status(500).json({ error: "Server error" });
+  }
 });
 
 // ✅ Get all products from unified "products" collection
@@ -213,6 +225,72 @@ app.get("/product/:id/reviews", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch reviews" });
   }
 });
+
+//  Orders
+const orderSchema = new mongoose.Schema(
+  {
+    stripeSessionId: String,
+    userEmail: String,
+    shipping: Object,
+    items: Array,
+    paymentStatus: String,
+    createdAt: { type: Date, default: Date.now },
+  },
+  { collection: "orders" }
+);
+
+const Order = mongoose.model("Order", orderSchema);
+
+app.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  async (req, res) => {
+    let event;
+
+    // Try to construct a webhook with the stripe-signature
+    try {
+      const sig = req.headers["stripe-signature"];
+      event = stripe.webhooks.constructEvent(
+        req.body,
+        sig,
+        process.env.STRIPE_WEBHOOK_SECRET
+      );
+    } catch (error) {
+      console.error("❌ Webhook signature verification failed:", err.message);
+      return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+    if (event.type === "checkout.session.completed") {
+      const session = event.data.object;
+      const sessionId = session.id;
+
+      const sessionData = sessionDataStore.get(sessionId);
+
+      if (!sessionData) {
+        console.error("❌ No session data found for:", sessionId);
+        return res.status(200).send(); // Exit gracefully
+      }
+
+      const order = new Order({
+        stripeSessionId: sessionId,
+        userEmail: sessionData.shipping.email,
+        shipping: sessionData.shipping,
+        items: sessionData.items,
+        paymentStatus: "paid",
+      });
+
+      try {
+        await order.save();
+        console.log("✅ Order saved:", order._id);
+      } catch (err) {
+        console.error("❌ Error saving order:", err);
+      }
+
+      sessionDataStore.delete(sessionId); // Optional cleanup
+    }
+
+    res.status(200).send(); // Always respond
+  }
+);
 
 // ✅ Start server
 app.listen(5000, () => console.log("🚀 Server running on port 5000"));

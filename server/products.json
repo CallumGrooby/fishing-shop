@@ -1,0 +1,509 @@
+[
+  {
+    "name": "Drennan Red Range Float Fish Rod 13ft",
+    "description": "13ft float rod designed for precision and sensitivity, ideal for coarse fishing.",
+    "priceInPence": 8999,
+    "available": true,
+    "tags": [
+      "top-seller"
+    ],
+    "salePriceInPence": 7999,
+    "category": "rods",
+    "image": "/images/rods/drennan_red_range_float_fish_rod_8_1.jpg"
+  },
+  {
+    "name": "Shakespeare Salt Surf & Pier Beachcaster Fishing Rod",
+    "description": "Durable rod crafted for beach and pier casting with saltwater protection.",
+    "priceInPence": 7499,
+    "available": true,
+    "tags": [
+      "sale"
+    ],
+    "salePriceInPence": 6999,
+    "category": "rods",
+    "image": "/images/rods/shakespeare_salt_surf_pier_beachcaster_1_1.jpg"
+  },
+  {
+    "name": "Century C2 MK2 Command & Control Minima Fishing Rod",
+    "description": "Premium rod engineered for long casting and high sensitivity.",
+    "priceInPence": 24999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 23999,
+    "category": "rods",
+    "image": "/images/rods/century_c2_mk2_command_control_minima_fishing_rod_4.jpg"
+  },
+  {
+    "name": "Daiwa D Wave Surf Fishing Rod",
+    "description": "Powerful surf rod, great for long-distance casting with solid backbone.",
+    "priceInPence": 5999,
+    "available": true,
+    "tags": [
+      "sale"
+    ],
+    "salePriceInPence": 4999,
+    "category": "rods",
+    "image": "/images/rods/daiwa_d_wave_surf_fishing_rod_5.jpg"
+  },
+  {
+    "name": "Harrison Aviator Plus Raven Build Fishing Rod",
+    "description": "Custom-build rod combining strength and finesse for specimen hunting.",
+    "priceInPence": 27999,
+    "available": true,
+    "tags": [
+      "preorder",
+      "featured"
+    ],
+    "salePriceInPence": 25999,
+    "category": "rods",
+    "image": "/images/rods/harrison_aviator_plus_raven_build_fishing_rod_1.jpg"
+  },
+  {
+    "name": "Preston Monster X Wandzee Fishing Rod",
+    "description": "Feeder rod with exceptional sensitivity and casting power.",
+    "priceInPence": 10999,
+    "available": true,
+    "tags": [
+      "top-seller"
+    ],
+    "salePriceInPence": 9999,
+    "category": "rods",
+    "image": "/images/rods/preston_monster_x_7_wandzee_1_1.jpg"
+  },
+  {
+    "name": "Catfish Pro Top Cat MK2B Fishing Rod",
+    "description": "Heavy-duty catfishing rod built for battling big fish.",
+    "priceInPence": 13999,
+    "available": true,
+    "tags": [
+      "sale"
+    ],
+    "salePriceInPence": 12499,
+    "category": "rods",
+    "image": "/images/rods/catfish_pro_top_cat_mk2b_rod_2_1_1.jpg"
+  },
+  {
+    "name": "John Wilson Barbel Quiver Travel Fishing Rod",
+    "description": "Versatile quiver rod that breaks down for easy travel.",
+    "priceInPence": 8499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 7499,
+    "category": "rods",
+    "image": "/images/rods/john_wilson_barble_quiver_travel_4.png"
+  },
+  {
+    "name": "Daiwa Black Widow Barbel Fishing Rod",
+    "description": "Great value barbel rod with superb backbone for river work.",
+    "priceInPence": 6499,
+    "available": true,
+    "tags": [
+      "sale"
+    ],
+    "salePriceInPence": 5999,
+    "category": "rods",
+    "image": "/images/rods/daiwa_black_widow_barbel_fishing_rod_12fts_1.png"
+  },
+  {
+    "name": "Skills BankSix 3 Rod Fishing Rod Pod",
+    "description": "Triple rod support system for stable bank fishing.",
+    "priceInPence": 5999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 5499,
+    "category": "rods",
+    "image": "/images/rods/century-adv-1-rod.png"
+  },
+  {
+    "name": "Century ADV-1 Rods",
+    "description": "High-performance carp rods with refined casting action.",
+    "priceInPence": 31999,
+    "available": true,
+    "tags": [
+      "top-seller",
+      "featured"
+    ],
+    "salePriceInPence": 29999,
+    "category": "rods",
+    "image": "URL_TO_IMAGE"
+  },
+
+  {
+    "name": "Shimano Baitrunner Dl Reel 5",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/shimano-baitrunner-dl-reel-5.jpg"
+  },
+  {
+    "name": "Daiwa 23 Matchman Fishing Reel 3 1 1",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/daiwa_23_matchman_fishing_reel_3_1_1.jpg"
+  },
+  {
+    "name": "Daiwa Ninja Spinning Reel 2500A 1",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/daiwa_ninja_spinning_reel_2500a_1.jpg"
+  },
+  {
+    "name": "Daiwa Tournament Ss2600 Whisker Reel One",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/daiwa_tournament_ss2600_whisker_reel_one.jpg"
+  },
+  {
+    "name": "Shimano Baitrunner St Fb Reel 1",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/shimano_baitrunner_st_fb_reel_1.jpg"
+  },
+  {
+    "name": "Wychwood Riot Big Pit Reel Black 1",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/wychwood_riot_big_pit_reel_black_1.jpg"
+  },
+  {
+    "name": "Daiwa 20 Crosscast 45 Scw Qd Reel 4 1 2",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/daiwa_20_crosscast_45_scw_qd_reel_4_1_2.jpg"
+  },
+  {
+    "name": "Daiwa 23 Emblem 45 Scw Qd Fishing Reel 3",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/daiwa_23_emblem_45_scw_qd_fishing_reel_3.jpg"
+  },
+  {
+    "name": "Daiwa Tournament Basia Qd Reel",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/Daiwa-Tournament-Basia-QD-Reel.jpg"
+  },
+  {
+    "name": "Guru A Class Fishing Reel 1",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/guru_a-class_fishing_reel_1.jpg"
+  },
+  {
+    "name": "Shimano Baitrunner Xtb Lc Reel 6",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/shimano_baitrunner_xtb_lc_reel_6.jpg"
+  },
+  {
+    "name": "Shimano Fx Reel 1",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/shimano_fx_reel_1.jpg"
+  },
+  {
+    "name": "Fox Eos Ree",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/fox_eos_ree.jpg"
+  },
+  {
+    "name": "Shimano Sienna Fg Reel 1",
+    "description": "High-quality fishing reel with smooth drag and durable build.",
+    "priceInPence": 7999,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 6999,
+    "category": "reels",
+    "image": "/images/reels/shimano_sienna_fg_reel_1.jpg"
+  },
+  {
+    "name": "Savage Gear 3D Roach Ready To Fish Lure Roach 1",
+    "description": "Premium fishing lure designed for maximum attraction and realistic movement.",
+    "priceInPence": 599,
+    "available": true,
+    "tags": [
+      "sale"
+    ],
+    "salePriceInPence": 499,
+    "category": "lures",
+    "image": "/images/lures/savage_gear_3d_roach_ready_to_fish_lure_roach_1.jpg"
+  },
+  {
+    "name": "Berkley Powerbait Sandeels 3 Pack Blue 1",
+    "description": "Premium fishing lure designed for maximum attraction and realistic movement.",
+    "priceInPence": 599,
+    "available": true,
+    "tags": [
+      "sale"
+    ],
+    "salePriceInPence": 499,
+    "category": "lures",
+    "image": "/images/lures/berkley_powerbait_sandeels_3_pack_blue_1.jpg"
+  },
+  {
+    "name": "Primary 1 8 1461",
+    "description": "Premium fishing lure designed for maximum attraction and realistic movement.",
+    "priceInPence": 599,
+    "available": true,
+    "tags": [
+      "sale"
+    ],
+    "salePriceInPence": 499,
+    "category": "lures",
+    "image": "/images/lures/primary_1_8_1461.jpg"
+  },
+  {
+    "name": "Advanta Super Sandeel Lure   Pearl White",
+    "description": "Premium fishing lure designed for maximum attraction and realistic movement.",
+    "priceInPence": 599,
+    "available": true,
+    "tags": [
+      "sale"
+    ],
+    "salePriceInPence": 499,
+    "category": "lures",
+    "image": "/images/lures/advanta_super_sandeel_lure_-_pearl_white.jpg"
+  },
+  {
+    "name": "Discover Top Water Critters Lure Box   Hard Soft Body   10 Pieces 6",
+    "description": "Premium fishing lure designed for maximum attraction and realistic movement.",
+    "priceInPence": 599,
+    "available": true,
+    "tags": [
+      "sale"
+    ],
+    "salePriceInPence": 499,
+    "category": "lures",
+    "image": "/images/lures/discover_top_water_critters_lure_box_-_hard_soft_body_-_10_pieces_6.jpg"
+  },
+  {
+    "name": "Nxg Bivvy Heater Bag 4 1",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/nxg_bivvy_heater_bag_4_1.jpg"
+  },
+  {
+    "name": "Trakker Nxg Camera Tech Bag 1",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/trakker_nxg_camera_tech_bag_1.jpg"
+  },
+  {
+    "name": "Trakker Nxg Compact Barrow Bag 1",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/trakker_nxg_compact_barrow_bag_1.jpg"
+  },
+  {
+    "name": "Trakker Essentials Bag Xl",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/trakker-essentials-bag-xl.jpg"
+  },
+  {
+    "name": "Avid Benchmark Ultra Cozy Chair 1",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/avid-benchmark-ultra-cozy-chair-1.jpg"
+  },
+  {
+    "name": "Korum Progress Ruckchair Standard 1",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/korum-progress-ruckchair-standard-1.jpg"
+  },
+  {
+    "name": "Sofa Chair 0001 1",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/sofa_chair_0001_1.jpg"
+  },
+  {
+    "name": "Banksix Fishing Rod Pod 3 Rods",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/banksix_fishing_rod_pod_3_rods.png"
+  },
+  {
+    "name": "Imgi 563 T3369 Ss 01",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/imgi_563_t3369_ss_01.jpg"
+  },
+  {
+    "name": "Trakker Nxg Modular Complete Lead Pouch",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/trakker-nxg-modular-complete-lead-pouch.jpg"
+  },
+  {
+    "name": "Korda Dark Kamo Cookware Bag 1",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/korda-dark-kamo-cookware-bag-1.jpg"
+  },
+  {
+    "name": "Korda Dark Kamo Goo Bag 1",
+    "description": "Durable and practical fishing accessory designed for convenience on the bank.",
+    "priceInPence": 2499,
+    "available": true,
+    "tags": [
+      "featured"
+    ],
+    "salePriceInPence": 2199,
+    "category": "accessories",
+    "image": "/images/accessories/korda-dark-kamo-goo-bag-1.jpg"
+  }
+]

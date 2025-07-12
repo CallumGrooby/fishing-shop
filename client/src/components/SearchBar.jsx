@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import searchIcon from "../assets/Search.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "./Cart";
+import { addToCart } from "./Store/Cart.js";
 import { AnimatePresence, motion } from "framer-motion";
 import { PriceComponent } from "./PriceComponent";
 import { useNavigate } from "react-router-dom";

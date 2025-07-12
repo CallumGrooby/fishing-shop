@@ -1,7 +1,6 @@
 import React from "react";
 import { PriceSummary } from "./PriceSummary";
 import { CartItemsList } from "../CartItemsList";
-import { addToCart } from "../Cart";
 import { motion, AnimatePresence } from "framer-motion";
 import { PriceComponent } from "../PriceComponent";
 import { useSelector } from "react-redux";
