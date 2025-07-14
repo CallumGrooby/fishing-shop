@@ -9,7 +9,7 @@ import { IMAGE_URL, SERVER_URL } from "../../config/config";
 
 export const Payment = ({ onBack, shippingData }) => {
   const cartItems = useSelector((state) => state.cart.items);
-  let navigate = useNavigate();
+
   const handleCheckOut = () => {
     // Sort all the items, so that i am only send the valid information (server, then find the products in the database by the id, so the client cant change the price)
     const minimalItems = cartItems.map((item) => ({
@@ -35,7 +35,7 @@ export const Payment = ({ onBack, shippingData }) => {
       })
       .then(({ url }) => {
         console.log(url);
-        // window.location.href = url;
+        window.location.href = url;
       })
       .catch((e) => {
         console.error(e.error);
