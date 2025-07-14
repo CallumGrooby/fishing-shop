@@ -19,7 +19,7 @@ export const SuccessPage = () => {
 
   useEffect(() => {
     if (sessionId) {
-      fetch(`${SERVER_URL}checkout-data?session_id=${sessionId}`)
+      fetch(`${SERVER_URL}/checkout-data?session_id=${sessionId}`)
         .then((res) => res.json())
         .then((fetchedData) => {
           setData(fetchedData);

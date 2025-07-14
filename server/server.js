@@ -7,7 +7,14 @@ const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // For testing; use your Vercel domain in production
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(
   "/webhook",
   express.raw({ type: "application/json" }) // Needed for Stripe webhook

@@ -19,7 +19,7 @@ export const Payment = ({ onBack, shippingData }) => {
 
     console.log(shippingData);
 
-    fetch(`${SERVER_URL}create-checkout-session`, {
+    fetch(`${SERVER_URL}/create-checkout-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

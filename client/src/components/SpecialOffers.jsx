@@ -8,7 +8,7 @@ export const SpecialOffers = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const res = await axios.get(`${SERVER_URL}get-special-offers`);
+        const res = await axios.get(`${SERVER_URL}/get-special-offers`);
         setOffers(res.data);
         console.log("special offers:", res.data);
       } catch (err) {

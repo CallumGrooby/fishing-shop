@@ -5,7 +5,7 @@ import { SERVER_URL } from "../../config/config";
 export const fetchProducts = () => async (dispatch) => {
   dispatch(setLoading());
   try {
-    const response = await axios.post(`${SERVER_URL}get-products`);
+    const response = await axios.post(`${SERVER_URL}/get-products`);
     if (response?.data?.products) {
       dispatch(setProducts(response.data.products));
     } else {

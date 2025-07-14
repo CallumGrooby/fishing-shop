@@ -13,7 +13,7 @@ export const ProductPage = () => {
 
   useEffect(() => {
     axios
-      .get(`${SERVER_URL}product/${productId}`)
+      .get(`${SERVER_URL}/product/${productId}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error("Failed to fetch product:", err));
   }, [productId]);
@@ -83,7 +83,7 @@ const Reviews = ({ productId }) => {
 
   const fetchReviews = () => {
     axios
-      .get(`${SERVER_URL}product/${productId}/reviews`)
+      .get(`${SERVER_URL}/product/${productId}/reviews`)
       .then((res) => {
         setReviews(res.data);
         setCurrentPage(0); // reset to first page when refreshed
@@ -93,7 +93,7 @@ const Reviews = ({ productId }) => {
 
   const addReview = ({ userName, comment, rating }) => {
     axios
-      .post(`${SERVER_URL}/add-review`, {
+      .post(`${SERVER_URL}//add-review`, {
         productId,
         userName,
         comment,

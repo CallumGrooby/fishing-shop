@@ -12,7 +12,7 @@ export const FeaturedCategories = () => {
   useEffect(() => {
     const fetchSections = async () => {
       try {
-        const res = await axios.get(`${SERVER_URL}get-home-sections`);
+        const res = await axios.get(`${SERVER_URL}/get-home-sections`);
         setSections(res.data); // ← this is the parsed JSON already
         console.log("Homepage Sections:", res.data);
       } catch (err) {
