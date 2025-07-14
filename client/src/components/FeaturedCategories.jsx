@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ProductCard } from "./ProductCard";
 import { ProductCarousel } from "./ProductCarousel";
 import { useSelector } from "react-redux";
+import { SERVER_URL } from "../config/config";
 
 export const FeaturedCategories = () => {
   const products = useSelector((state) => state.products?.allProducts || []);
@@ -11,7 +12,7 @@ export const FeaturedCategories = () => {
   useEffect(() => {
     const fetchSections = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/get-home-sections");
+        const res = await axios.get(`${SERVER_URL}get-home-sections`);
         setSections(res.data); // ← this is the parsed JSON already
         console.log("Homepage Sections:", res.data);
       } catch (err) {

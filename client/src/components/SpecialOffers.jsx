@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { SERVER_URL } from "../config/config";
 
 export const SpecialOffers = () => {
   const [specialOffers, setOffers] = useState([]);
@@ -7,7 +8,7 @@ export const SpecialOffers = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/get-special-offers");
+        const res = await axios.get(`${SERVER_URL}get-special-offers`);
         setOffers(res.data);
         console.log("special offers:", res.data);
       } catch (err) {
@@ -32,7 +33,7 @@ export const SpecialOffers = () => {
           </div>
 
           <div className="image-holder">
-            <div className=""></div>
+            <img src={offer.image} />
           </div>
         </div>
       ))}

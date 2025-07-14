@@ -4,10 +4,12 @@ import { CartItemsList } from "../CartItemsList";
 import { motion, AnimatePresence } from "framer-motion";
 import { PriceComponent } from "../PriceComponent";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { IMAGE_URL, SERVER_URL } from "../../config/config";
 
 export const Payment = ({ onBack, shippingData }) => {
   const cartItems = useSelector((state) => state.cart.items);
-
+  let navigate = useNavigate();
   const handleCheckOut = () => {
     // Sort all the items, so that i am only send the valid information (server, then find the products in the database by the id, so the client cant change the price)
     const minimalItems = cartItems.map((item) => ({
@@ -17,7 +19,7 @@ export const Payment = ({ onBack, shippingData }) => {
 
     console.log(shippingData);
 
-    fetch("http://localhost:5000/create-checkout-session", {
+    fetch(`${SERVER_URL}create-checkout-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +35,7 @@ export const Payment = ({ onBack, shippingData }) => {
       })
       .then(({ url }) => {
         console.log(url);
-        // window.location = url;
+        // window.location.href = url;
       })
       .catch((e) => {
         console.error(e.error);
@@ -120,7 +122,11 @@ export const Cart = ({ cartItems }) => {
             layout
           >
             <div className="cart-item-image-container">
-              <img src={item.image} alt={item.name} className="product-image" />
+              <img
+                src={`${IMAGE_URL}${item.image}`}
+                alt={item.name}
+                className="product-image"
+              />
             </div>
 
             <div className="product-info">

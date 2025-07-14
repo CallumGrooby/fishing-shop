@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useDispatch } from "react-redux";
+import { IMAGE_URL, SERVER_URL } from "../config/config";
 
 export const Hero = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ export const Hero = () => {
   const [products, setProducts] = useState([]);
   const FetchProducts = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/get-products");
+      const response = await axios.post(`${SERVER_URL}get-products`);
       console.log(response);
       return response;
     } catch (e) {
@@ -58,11 +59,11 @@ export const Hero = () => {
 
 const Sections = ({ products }) => {
   const [sections, setSections] = useState([]);
-  const baseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
+
   useEffect(() => {
     const fetchSections = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/get-home-sections");
+        const res = await axios.get(`${SERVER_URL}get-home-sections`);
         setSections(res.data); // ← this is the parsed JSON already
         console.log("Homepage Sections:", res.data);
       } catch (err) {
@@ -110,7 +111,7 @@ const Sections = ({ products }) => {
                   {matchingProducts.map((product) => (
                     <div key={product._id} className="product-card">
                       <img
-                        src={`${baseUrl}${product.image}`}
+                        src={`${IMAGE_URL}${product.image}`}
                         alt={product.name}
                       />
                       <h3>{product.name}</h3>

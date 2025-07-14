@@ -5,10 +5,10 @@ import { useDispatch } from "react-redux";
 import { PriceComponent } from "./PriceComponent";
 import { DeleteIcon } from "./Icons/DeleteIcon";
 import { addToCart, decreaseQuantity, removeFromCart } from "./Store/Cart";
+import { IMAGE_URL } from "../config/config";
 
 export const CartItemsList = ({ cartItems }) => {
   const dispatch = useDispatch();
-
   return (
     <>
       {cartItems.length === 0 ? (
@@ -27,7 +27,7 @@ export const CartItemsList = ({ cartItems }) => {
               >
                 <div className="cart-item-image-container">
                   <img
-                    src={item.image}
+                    src={`${IMAGE_URL}${item.image}`}
                     alt={item.name}
                     className="product-image"
                   />

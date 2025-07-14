@@ -1,5 +1,6 @@
 import React from "react";
 import bag from "../assets/bag.png";
+import reel from "../assets/reel.png";
 import leftSideShape from "../assets/hero-splash.svg";
 import rightSideShape from "../assets/section-path.svg";
 export const HeroSection = () => {
@@ -27,7 +28,7 @@ export const HeroSection = () => {
 
           <div className="image-holder">
             <div className="hero-image">
-              <img src={bag} alt="Out door camping bag" />
+              <img src={reel} alt="Out door camping bag" />
             </div>
             <div className="price-tag">
               <p>Starting At</p>

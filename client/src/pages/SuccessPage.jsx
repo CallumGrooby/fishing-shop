@@ -6,6 +6,7 @@ import { Cart } from "../components/CheckOut/Payment";
 import { PriceSummary } from "../components/CheckOut/PriceSummary";
 import { fetchProducts } from "../components/Store/productThunk";
 import { clearCart } from "../components/Store/Cart.js";
+import { SERVER_URL } from "../config/config.js";
 export const SuccessPage = () => {
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get("session_id");
@@ -18,7 +19,7 @@ export const SuccessPage = () => {
 
   useEffect(() => {
     if (sessionId) {
-      fetch(`http://localhost:5000/checkout-data?session_id=${sessionId}`)
+      fetch(`${SERVER_URL}checkout-data?session_id=${sessionId}`)
         .then((res) => res.json())
         .then((fetchedData) => {
           setData(fetchedData);
@@ -37,6 +38,7 @@ export const SuccessPage = () => {
 
   useEffect(() => {
     if (products.length <= 0 || !data) return;
+    console.log(data);
 
     const orderedItems = data.items.map((item) => {
       const product = products.find((p) => p._id === item.id);

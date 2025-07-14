@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { addToCart } from "../components/Store/Cart.js";
 import { AnimatePresence, motion } from "framer-motion";
 import { PriceComponent } from "../components/PriceComponent";
+import { IMAGE_URL, SERVER_URL } from "../config/config.js";
 
 export const ProductPage = () => {
   const { productId } = useParams();
@@ -12,7 +13,7 @@ export const ProductPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/product/${productId}`)
+      .get(`${SERVER_URL}product/${productId}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error("Failed to fetch product:", err));
   }, [productId]);
@@ -36,10 +37,15 @@ export const ProductPage = () => {
 const ProductInfo = (props) => {
   const { product } = props;
   const dispatch = useDispatch();
+
   return (
     <section className="product-section">
       <div className="product-image-container">
-        <img src={product.image} alt={product.name} className="product-image" />
+        <img
+          src={`${IMAGE_URL}${product.image}`}
+          alt={product.name}
+          className="product-image"
+        />
       </div>
       <div className="product-info">
         <h1 className="product-title">{product.name}</h1>
@@ -77,7 +83,7 @@ const Reviews = ({ productId }) => {
 
   const fetchReviews = () => {
     axios
-      .get(`http://localhost:5000/product/${productId}/reviews`)
+      .get(`${SERVER_URL}product/${productId}/reviews`)
       .then((res) => {
         setReviews(res.data);
         setCurrentPage(0); // reset to first page when refreshed
@@ -87,7 +93,7 @@ const Reviews = ({ productId }) => {
 
   const addReview = ({ userName, comment, rating }) => {
     axios
-      .post("http://localhost:5000/add-review", {
+      .post(`${SERVER_URL}/add-review`, {
         productId,
         userName,
         comment,

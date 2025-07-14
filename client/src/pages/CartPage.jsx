@@ -12,11 +12,10 @@ import {
   decreaseQuantity,
   removeFromCart,
 } from "../components/Store/Cart";
+import { IMAGE_URL } from "../config/config";
 export const CartPage = ({ closeModal }) => {
   const dispatch = useDispatch();
-
   const cartItems = useSelector((state) => state.cart.items);
-
   const handleCheckOut = () => {
     closeModal("cartOpen");
   };
@@ -52,7 +51,7 @@ export const CartPage = ({ closeModal }) => {
               >
                 <div className="cart-item-image-container">
                   <img
-                    src={item.image}
+                    src={`${IMAGE_URL}${item.image}`}
                     alt={item.name}
                     className="product-image"
                   />

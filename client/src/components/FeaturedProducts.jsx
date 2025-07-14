@@ -23,14 +23,12 @@ export const FeaturedProducts = () => {
         <span className="header-line" />
       </div>
 
-      <div className="mb-4 flex gap-2 category-buttons">
+      <div className="category-buttons">
         {categories.map((r) => (
           <button
             key={r}
             onClick={() => setFilter(r)}
-            className={`px-4 py-2 rounded ${
-              filter === r ? "bg-blue-600 text-white" : "bg-gray-200"
-            }`}
+            className={`px-4 py-2 rounded ${filter === r ? "active" : ""}`}
           >
             {r.toUpperCase()}
           </button>

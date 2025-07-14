@@ -7,15 +7,20 @@ import { PriceComponent } from "./PriceComponent";
 import cartIcon from "../assets/Cart.svg";
 import { CartIcon } from "./Icons/CartIcon";
 import { addToCart } from "./Store/Cart";
+import { IMAGE_URL } from "../config/config";
 export const ProductCard = (props) => {
   const { productDetails: product, class: className } = props;
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const baseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
   const navigateTo = () => {
     console.log("clicked");
     navigate(`/product/${product._id}`);
+  };
+
+  const handleAddToCartClick = (event) => {
+    event.stopPropagation();
+    dispatch(addToCart(product));
   };
 
   if (product.isCustom) {
@@ -45,15 +50,12 @@ export const ProductCard = (props) => {
     >
       {product.tags.includes("sale") && <span className="tag">sale!</span>}
 
-      <img src={`${baseUrl}${product.image}`} alt={product.name} />
+      <img src={`${IMAGE_URL}${product.image}`} alt={product.name} />
       <div className="product-details">
         <h3 className="product-name">{product.name}</h3>
         <div className="product-details-bottom ">
           <PriceComponent product={product} />
-          <button
-            className="add-to-cart-button"
-            onClick={() => dispatch(addToCart(product))}
-          >
+          <button className="add-to-cart-button" onClick={handleAddToCartClick}>
             <p className="desktop-only">Add To Cart</p>
 
             <CartIcon className="mobile-only icon" />

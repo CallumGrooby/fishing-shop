@@ -46,12 +46,6 @@ export const ProductCarousel = ({ products }) => {
           style={{ transform: `translateX(-${index * (100 / visibleCount)}%)` }}
         >
           {products.map((product) => (
-            // <div className="carousel-slide" key={product._id}>
-            //   <img src={product.image} alt={product.name} />
-            //   <h4>{product.name}</h4>
-            //   <p>£{(product.priceInPence / 100).toFixed(2)}</p>
-            // </div>
-
             <ProductCard class={"carousel-product"} productDetails={product} />
           ))}
         </div>
