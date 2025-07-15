@@ -14,7 +14,7 @@ export const HeroSection = () => {
               <p>Up to 50% off on selected items</p>
             </div>
 
-            <button class="offer-button">
+            <button className="offer-button">
               <span>Shop Now</span>
               <span className="text-lg">→</span>
             </button>
@@ -48,7 +48,7 @@ export const HeroSection = () => {
           <img src={bag} alt="Out door camping bag" />
         </div>
 
-        <button class="offer-button">
+        <button className="offer-button">
           <span>Shop Now</span>
           <span className="text-lg">→</span>
         </button>

@@ -22,12 +22,12 @@ export const SpecialOffers = () => {
   return (
     <div className="special-offers-wrapper">
       {specialOffers.map((offer, i) => (
-        <div key={i} class="overlay">
+        <div key={i} className="overlay">
           <div className="offer">
-            <h3 class="offer-title">{offer.title}</h3>
-            <h2 class="offer-discount">{offer.maxPercentageOf}%</h2>
-            <p class="offer-description">{offer.description}</p>
-            <button class="offer-button">
+            <h3 className="offer-title">{offer.title}</h3>
+            <h2 className="offer-discount">{offer.maxPercentageOf}%</h2>
+            <p className="offer-description">{offer.description}</p>
+            <button className="offer-button">
               <h3>Shop Now</h3> <span className="text-lg">→</span>
             </button>
           </div>

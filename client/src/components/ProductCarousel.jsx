@@ -45,8 +45,12 @@ export const ProductCarousel = ({ products }) => {
           className="carousel-track"
           style={{ transform: `translateX(-${index * (100 / visibleCount)}%)` }}
         >
-          {products.map((product) => (
-            <ProductCard class={"carousel-product"} productDetails={product} />
+          {products.map((product, i) => (
+            <ProductCard
+              key={i}
+              className={"carousel-product"}
+              productDetails={product}
+            />
           ))}
         </div>
       </div>
