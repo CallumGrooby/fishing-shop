@@ -75,12 +75,6 @@ npm run dev
 
 ---
 
-## 🤝 Contributing
-
-Open to contributions for UI improvements, additional features, and bug fixes. Feel free to submit issues or PRs!
-
----
-
 ## ⚖ License
 
 MIT © Callum Grooby
