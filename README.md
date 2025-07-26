@@ -18,13 +18,13 @@ An e-commerce web app for fishing enthusiasts. Browse and shop fishing gear incl
 
 ## 🌐 Live Demo
 
-View the live site →
+View the live site → https://ironhhook.callumgrooby.co.uk/
 
 ---
 
 ## 📸 Screenshot
 
-
+![Screenshot](./assets/screenshot.png)
 
 ---
 
